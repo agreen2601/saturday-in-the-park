@@ -25,7 +25,7 @@ const Register = props => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Accept": "application/json",
       },
       body: JSON.stringify(newCustomer)
     })
@@ -34,6 +34,11 @@ const Register = props => {
       if("token" in parsedResponse) {
         sessionStorage.setItem("kennywood-token", parsedResponse.token)
       }
+    })
+    .then(() => {
+        props.history.push({
+            pathname: "/"
+        })
     })
   }
 

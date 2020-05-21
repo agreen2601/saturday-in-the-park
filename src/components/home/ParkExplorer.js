@@ -15,7 +15,7 @@ const ParkExplorer = props => {
                 "method": "GET",
                 "headers": {
                     "Accept": "application/json",
-                    "Authorization": `Token ${localStorage.getItem("kennywood_token")}`
+                    "Authorization": `token ${sessionStorage.getItem("kennywood-token")}`
                 }
             })
                 .then(response => response.json())
@@ -30,8 +30,8 @@ const ParkExplorer = props => {
             fetch('http://localhost:8000/parkareas', {
                 "method": "GET",
                 "headers": {
-                    "Accept": "application/json",
-                    "Authorization": `Token ${localStorage.getItem("kennywood_token")}`
+                    "Content-Type": "application/json",
+                    "Authorization": `token ${sessionStorage.getItem("kennywood-token")}`
                 }
             })
                 .then(response => response.json())
@@ -44,8 +44,8 @@ const ParkExplorer = props => {
     return (
         <>
             <main className="explorer">
-                <AreaList areas={areas} getAttractions={getAttractions} />
-                <Attractions attractions={attractions} {...props} />
+                <AreaList areas={areas} getAttractions={getAttractions} {...props} />
+                <Attractions attractions={attractions} getAttractions={getAttractions} {...props} />
             </main>
         </>
     )

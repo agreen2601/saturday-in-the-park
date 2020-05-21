@@ -5,6 +5,7 @@ import Register from "./auth/Register"
 import Login from "./auth/Login"
 import ParkExplorer from "./home/ParkExplorer"
 import MyItinerary from "./home/MyItinerary"
+import Attractions from "./home/Attractions"
 
 
 const ApplicationViews = () => {
@@ -42,12 +43,7 @@ const ApplicationViews = () => {
 
             <Route
                 path="/attractions" render={props => {
-                    return (
-                        <>
-                            <h1>Attractions</h1>
-                            <img className="swings" src={require('./home/swings.jpeg')} alt="My Dog" />
-                        </>
-                    )
+                    return <Attractions {...props} />
                 }}
             />
 
